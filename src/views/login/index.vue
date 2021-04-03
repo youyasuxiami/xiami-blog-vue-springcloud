@@ -125,7 +125,7 @@
         },
         loading: false,
         redirect: undefined,
-        src: process.env.VUE_APP_BASE_API+'/captcha.jpg',
+        src: process.env.VUE_APP_BASE_API+'/oauth2/captcha.jpg',
         rsaKey: ''
       }
     },
@@ -151,17 +151,16 @@
               jsonData.password + ',' + new Date().getTime()
             )
             this.$store.dispatch('user/Login', jsonData).then((data) => {
-
               this.$router.push({ path: '/' })
               this.loading = false
-            }).catch(() => {
+            }).catch((error) => {
               this.loading = false
             })
           }
         })
       },
       refreshCode() {
-        this.src = process.env.VUE_APP_BASE_API+'/captcha.jpg?t=' + new Date().getTime()
+        this.src = process.env.VUE_APP_BASE_API+'/oauth2/captcha.jpg?t=' + new Date().getTime()
       },
       // 获取公钥的方法
       getRsaKey() {

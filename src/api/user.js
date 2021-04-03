@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function login(params) {
   return request({
-    url: '/login',
+    url: '/oauth2/login',
     method: 'post',
     params
   })
@@ -11,7 +11,7 @@ export function login(params) {
 // export function getInfo(token) {
 export function getInfo(params) {
   return request({
-    url: '/info',
+    url: '/oauth2/info',
     method: 'get',
     params
     // ,
@@ -21,7 +21,7 @@ export function getInfo(params) {
 
 export function logout(token) {
   return request({
-    url: '/logout',
+    url: '/oauth2/logout1',
     method: 'post',
     params: {token}
 
@@ -30,7 +30,7 @@ export function logout(token) {
 
 export function getPublicKey() {
   return request({
-    url: '/getPublicKey',
+    url: '/oauth2/getPublicKey',
     method: 'get',
   })
 }
@@ -38,7 +38,7 @@ export function getPublicKey() {
 
 export function getCaptcha(params) {
   return request({
-    url: '/captcha.jpg',
+    url: '/oauth2/captcha.jpg',
     method: 'get',
     params
   })

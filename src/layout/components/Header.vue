@@ -73,6 +73,8 @@
   import Screenfull from '@/components/Screenfull'
   import SizeSelect from '@/components/SizeSelect'
   import { mapGetters } from 'vuex'
+  import {Message} from 'element-ui'
+
 
   export default {
     data() {
@@ -130,8 +132,12 @@
       async logout() {
         await this.$store.dispatch('user/logout')
         this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+        Message({
+          message: "退出登录成功",
+          type: 'success',
+          duration: 3000
+        })
       }
-
     }
   }
 </script>
