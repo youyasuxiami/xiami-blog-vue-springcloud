@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getTypes(params) {
   return request({
-    url: '/type/getTypes',
+    url: '/blog/type/getTypes',
     method: 'get',
     params
   })
@@ -10,7 +10,7 @@ export function getTypes(params) {
 
 export function getList(params) {
   return request({
-    url: "/type/getTypeList",
+    url: "/blog/type/getTypeList",
     method: 'get',
     params
   })
@@ -18,7 +18,7 @@ export function getList(params) {
 
 export function addType(data) {
   return request({
-    url: '/type/addType',
+    url: '/blog/type/addType',
     method: 'post',
     data
   })
@@ -26,7 +26,7 @@ export function addType(data) {
 
 export function deleteType(params) {
   return request({
-    url: '/type/deleteType',
+    url: '/blog/type/deleteType',
     method: 'delete',
     params
   })
@@ -34,7 +34,7 @@ export function deleteType(params) {
 
 export function deleteTypes(params) {
   return request({
-    url: '/type/deleteTypes',
+    url: '/blog/type/deleteTypes',
     method: 'delete',
     params
   })

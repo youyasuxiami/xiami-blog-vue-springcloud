@@ -2,7 +2,7 @@ import request from '@/utils/request'
 
 export function getList(params) {
   return request({
-    url: "/comment/getComments",
+    url: "/blog/comment/getComments",
     method: 'get',
     params
   })
@@ -10,7 +10,7 @@ export function getList(params) {
 
 export function updateCommentStatus(params) {
   return request({
-    url: '/comment/updateCommentStatus',
+    url: '/blog/comment/updateCommentStatus',
     method: 'post',
     params
   })
@@ -23,7 +23,7 @@ export function updateCommentStatus(params) {
  */
 export function getCommentReportList(params) {
   return request({
-    url: "/comment/getCommentReportList",
+    url: "/blog/comment/getCommentReportList",
     method: 'get',
     params
   })
@@ -36,7 +36,7 @@ export function getCommentReportList(params) {
  */
 export function updateProgressStatusName(params) {
   return request({
-    url: '/comment/updateProgressStatusName',
+    url: '/blog/comment/updateProgressStatusName',
     method: 'post',
     params
   })
