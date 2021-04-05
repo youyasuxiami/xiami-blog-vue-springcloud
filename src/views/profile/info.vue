@@ -9,13 +9,29 @@
       label-width="120px"
       @keyup.enter.native="onSubmit"
     >
-<!--      <el-input v-model="form.id" type="hidden"/>-->
+      <!--      <el-input v-model="form.id" type="hidden"/>-->
+      <!--      <image-cropper url="https://httpbin.org/post" img-format="jpg" img-bgc="#fff" v-if="show"-->
+      <!--                     :lang-ext="{hint: '点击，或拖动图片至此处(*^_^*)'}"-->
+      <!--                     :value="show"-->
+      <!--                     field="avatar1"-->
+      <!--                     ki="0"-->
+      <!--                     :allowImgFormat="allowImgFormat"-->
+      <!--                     @crop-success="cropSuccess"-->
+      <!--                     @crop-upload-success="cropUploadSuccess"-->
+      <!--                     @crop-upload-fail="cropUploadFail"-->
+      <!--                     :no-rotate="false"-->
+      <!--                     :headers="headers"-->
+      <!--                     :params="otherParams"></image-cropper>-->
       <el-form-item label="头像" prop="status">
         <pan-thumb :image="form.avatar" @click.native="toggleShow"/>
         <image-cropper
           v-model="show"
-          field="multipartFile"
+          field="img"
           :size="50"
+          :width="300"
+          :height="300"
+          ki="0"
+          :allowImgFormat="allowImgFormat"
           :url="url"
           :headers="headers"
           img-format="png"
@@ -24,7 +40,8 @@
           @crop-upload-fail="cropUploadFail"
         />
       </el-form-item>
-      <el-form-item label="用户名" >
+
+      <el-form-item label="用户名">
         <el-input v-model="form.name" disabled></el-input>
       </el-form-item>
       <el-form-item label="昵称">
@@ -55,18 +72,22 @@
   </div>
 </template>
 <script>
-  import { info,update } from '../../api/profile'
+  import {info, update} from '../../api/profile'
   import ImageCropper from 'vue-image-crop-upload'
   import PanThumb from '@/components/PanThumb'
   export default {
     name: 'ProfileInfo',
     data() {
       return {
+        otherParams: {
+          token: '123456798',
+          name: 'img'
+        },
         formLoading: true,
         form: {
           // id:'',
           avatar: '',
-          name:"",
+          name: "",
           nickName: '',
           email: '',
           createTime: '',
@@ -74,7 +95,7 @@
           status: '',
           ps: '',
         },
-        show: false,//默认不显示头像修改框
+        show: true,//默认不显示头像修改框
         url: process.env.VUE_APP_BASE_API + '/upload',
         // params: {
         //   access_token: getToken()
@@ -82,9 +103,13 @@
         headers: {
           smail: '*_~'
         },
+        allowImgFormat: [
+          'gif',
+          'jpg',
+          'png'
+        ]
       }
     },
-    show: false,//默认不显示头像修改框
     url: process.env.VUE_APP_BASE_API + '/upload',
     // params: {
     //   access_token: getToken()
@@ -92,7 +117,7 @@
     headers: {
       smail: '*_~'
     },
-    components: { ImageCropper, PanThumb },
+    components: {ImageCropper, PanThumb},
     created() {
       this.fetchData()
     },
@@ -101,6 +126,7 @@
         info(this.$store.getters.name).then(response => {
           this.form = response.data
           this.formLoading = false
+          console.log("111111")
         })
       },
       onSubmit() {
