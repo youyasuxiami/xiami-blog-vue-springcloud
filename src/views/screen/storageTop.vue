@@ -11,6 +11,8 @@
 
 <script>
   import { getHotAuthorAndNum } from '@/api/home'
+  const echarts = require("echarts");
+
 	export default {
 		data() {
 			return {
@@ -25,7 +27,7 @@
 			this.initData();
 		},
 		mounted() {
-			this.chart = this.$echarts.init(document.getElementById("bottomLeftChart"));
+			this.chart = echarts.init(document.getElementById("bottomLeftChart"));
 			this.option = {
 				title: {
 					text: "",
@@ -94,7 +96,7 @@
 							normal: {
 								opacity: 1,
 								barBorderRadius: 5,
-								color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+								color: echarts.graphic.LinearGradient(0, 0, 0, 1, [{
 										offset: 0,
 										color: "#5e69ff"
 									},
@@ -136,10 +138,10 @@
 			changeColor(){
 				switch(this.type){
 						case 0:
-							this.option.series[0].itemStyle.normal.color = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0,color: "#5e69ff"},{offset: 1,color: "#ffa4f3"}])
+							this.option.series[0].itemStyle.normal.color = echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0,color: "#5e69ff"},{offset: 1,color: "#ffa4f3"}])
 							break;
 						case 1:
-							this.option.series[0].itemStyle.normal.color = new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0,color: "#1911ff"},{offset: 1,color: "#e653ff"}])
+							this.option.series[0].itemStyle.normal.color = echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0,color: "#1911ff"},{offset: 1,color: "#e653ff"}])
 							break
 					}
 					this.type = 1 - this.type;

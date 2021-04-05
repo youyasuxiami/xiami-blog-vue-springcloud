@@ -9,7 +9,7 @@ export function getFirstMenus(params) {
 }
 export function getMenusByFirstMenuId(params) {
   return request({
-    url: '/info',
+    url: '/oauth2/info',
     method: 'get',
     params
   })

@@ -3,14 +3,14 @@ import request from '@/utils/request'
 // 用户管理 START **********************
 export function getList(params) {
   return request({
-    url: "/user/searchList",
+    url: "/sys/user/searchList",
     method: 'get',
     params
   })
 }
 export function addUser(data) {
   return request({
-    url: '/user/addUser',
+    url: '/sys/user/addUser',
     method: 'post',
     data
   })
@@ -18,7 +18,7 @@ export function addUser(data) {
 
 export function updateUserStatus(params) {
   return request({
-    url: '/user/updateUserStatus',
+    url: '/sys/user/updateUserStatus',
     method: 'post',
     params
   })
@@ -26,7 +26,7 @@ export function updateUserStatus(params) {
 
 export function deleteUser(params) {
   return request({
-    url: '/user/deleteUser',
+    url: '/sys/user/deleteUser',
     method: 'post',
     params
   })
@@ -39,7 +39,7 @@ export function deleteUser(params) {
  */
 export function addUsers(data) {
   return request({
-    url: '/user/importExcel',
+    url: '/sys/user/importExcel',
     method: 'post',
     headers: {"Content-type": "multipart/form-data"},
     data
@@ -53,7 +53,7 @@ export function addUsers(data) {
  */
 export function exportUsers(params) {
   return request({
-    url: '/user/exportUserToExcel',
+    url: '/sys/user/exportUserToExcel',
     method: 'get',
     params,
     headers: { "Content-type": "multipart/form-data" },
@@ -67,7 +67,7 @@ export function exportUsers(params) {
  */
 export function exportAllUsers(params) {
   return request({
-    url: '/user/exportAllUserToExcel',
+    url: '/sys/user/exportAllUserToExcel',
     method: 'get',
     params,
     headers: { "Content-type": "multipart/form-data" },
@@ -82,7 +82,7 @@ export function exportAllUsers(params) {
  */
 export function deleteUsers(params) {
   return request({
-    url: '/user/deleteUsers',
+    url: '/sys/user/deleteUsers',
     method: 'get',
     params
   })
@@ -95,7 +95,7 @@ export function deleteUsers(params) {
  */
 export function getRoles() {
   return request({
-    url: '/user/getRoles',
+    url: '/sys/user/getRoles',
     method: 'get',
   })
 }
@@ -107,7 +107,7 @@ export function getRoles() {
  */
 export function getCheckedRoles(params) {
   return request({
-    url: '/user/getCheckedRoles',
+    url: '/sys/user/getCheckedRoles',
     method: 'get',
     params
   })
@@ -115,7 +115,7 @@ export function getCheckedRoles(params) {
 
 export function resetUser(params) {
   return request({
-    url: '/user/resetUser',
+    url: '/sys/user/resetUser',
     method: 'post',
     params
   })
@@ -137,7 +137,7 @@ export function resetUser(params) {
 // 菜单管理 START **********************
 export function getMenuList(params) {
   return request({
-    url: "/menu/menuList",
+    url: "/sys/menu/menuList",
     method: 'get',
     params
   })
@@ -145,7 +145,7 @@ export function getMenuList(params) {
 
 export function getRoleList(params) {
   return request({
-    url: "/role/roleList",
+    url: "/sys/role/roleList",
     method: 'get',
     params
   })
@@ -158,7 +158,7 @@ export function getRoleList(params) {
  */
 export function addMenu(data) {
   return request({
-    url: '/menu/addMenu',
+    url: '/sys/menu/addMenu',
     method: 'post',
     data
   })
@@ -170,7 +170,7 @@ export function addMenu(data) {
  */
 export function deleteMenu(params) {
   return request({
-    url: '/menu/deleteMenu',
+    url: '/sys/menu/deleteMenu',
     method: 'get',
     params
   })
@@ -182,7 +182,7 @@ export function deleteMenu(params) {
  */
 export function deleteMenus(params) {
   return request({
-    url: '/menu/deleteMenus',
+    url: '/sys/menu/deleteMenus',
     method: 'get',
     params
   })
@@ -197,7 +197,7 @@ export function deleteMenus(params) {
  */
 export function addRole(data) {
   return request({
-    url: '/role/addRole',
+    url: '/sys/role/addRole',
     method: 'post',
     data
   })
@@ -210,7 +210,7 @@ export function addRole(data) {
  */
 export function getMenusByRoleId(params) {
   return request({
-    url: '/role/getMenusByRoleId',
+    url: '/sys/role/getMenusByRoleId',
     method: 'get',
     params
   })
@@ -223,7 +223,7 @@ export function getMenusByRoleId(params) {
  */
 export function deleteRole(params) {
   return request({
-    url: '/role/deleteRole',
+    url: '/sys/role/deleteRole',
     method: 'get',
     params
   })

@@ -55,14 +55,16 @@ service.interceptors.response.use(
       return res
     }
   },
-  error => {
-    Message({
-      message: error.response.data.message,
-      type: 'error',
-      duration: 3 * 1000
-    })
-    return Promise.reject(error)
-  }
+  // error => {
+  //   console.log("error")
+  //   console.log(error.response)
+  //   Message({
+  //     message: error.response.data.message,
+  //     type: 'error',
+  //     duration: 3 * 1000
+  //   })
+  //   return Promise.reject(error)
+  // }
 )
 
 export default service
